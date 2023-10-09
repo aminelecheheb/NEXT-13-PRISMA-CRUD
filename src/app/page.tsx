@@ -4,17 +4,15 @@ import { User } from "./user";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
-  // const session = await getServerSession(authOptions);
-
-  // if (!session) {
-  //   redirect("/api/auth/signin");
-  // }
   return (
-    <main className={styles.main}>
-      <h1>Hello world</h1>
-      <User />
-    </main>
+    <>
+      <Navbar />
+      <main className={styles.main}>
+        <h1>Hello world</h1>
+      </main>
+    </>
   );
 }

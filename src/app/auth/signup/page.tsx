@@ -1,7 +1,9 @@
 "use client";
 
 import { createUserAction } from "@/app/_actions";
+import { User } from "@/app/user";
 import { useRef } from "react";
+import { signIn } from "next-auth/react";
 
 const signup = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -16,8 +18,11 @@ const signup = () => {
     const password = data.get("password");
     if (typeof password !== "string" || !password) return;
 
-    await createUserAction(name, email, password);
-    formRef.current?.reset();
+    const d = await createUserAction(name, email, password);
+    if (d.user) {
+      await signIn("credentials", { email, password, callbackUrl: "/" });
+      formRef.current?.reset();
+    }
   }
 
   return (
@@ -32,6 +37,7 @@ const signup = () => {
         />
         <button>sign up</button>
       </form>
+      <User />
     </main>
   );
 };
