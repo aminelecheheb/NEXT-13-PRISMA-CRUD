@@ -4,7 +4,7 @@ import { createProduct } from "@/lib/product";
 import { createCategory } from "@/lib/category";
 import { getServerSession } from "next-auth";
 
-// import { revalidatePath } from "next/cache";
+import { revalidatePath } from "next/cache";
 
 import { signIn } from "next-auth/react";
 import { authOptions } from "./api/auth/[...nextauth]/route";
@@ -39,5 +39,6 @@ export async function createProductAction(
 
 export async function createCategoryAction(category: string) {
   const data = await createCategory(category);
+  revalidatePath("/dashboard");
   return data;
 }

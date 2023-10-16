@@ -17,25 +17,22 @@ const NewProduct = () => {
     const categoryId = data.get("categoryId");
     if (typeof categoryId !== "string" || !categoryId) return;
 
-    const d = await createProductAction(
-      title,
-      description,
-      imageUrl,
-      categoryId
-    );
+    await createProductAction(title, description, imageUrl, categoryId);
 
-    console.log(d);
     formRef.current?.reset();
   }
 
   return (
-    <form ref={formRef} action={action}>
-      <input name="title" type="text" placeholder="title" />
-      <textarea name="description" id=""></textarea>
-      <input name="imageUrl" type="text" placeholder="image" />
-      <input name="categoryId" type="text" placeholder="categoryId" />
-      <button>submit</button>
-    </form>
+    <div className="newProduct">
+      <h2>create new Product</h2>
+      <form ref={formRef} action={action}>
+        <input name="title" type="text" placeholder="title" />
+        <textarea name="description" id=""></textarea>
+        <input name="imageUrl" type="text" placeholder="image" />
+        <input name="categoryId" type="text" placeholder="categoryId" />
+        <button>submit</button>
+      </form>
+    </div>
   );
 };
 

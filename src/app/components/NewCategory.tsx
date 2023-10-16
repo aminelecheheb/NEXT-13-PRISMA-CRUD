@@ -9,16 +9,18 @@ const NewCategory = () => {
     const categoryInput = data.get("category");
     if (typeof categoryInput !== "string" || !categoryInput) return;
 
-    const d = await createCategoryAction(categoryInput);
+    await createCategoryAction(categoryInput);
 
-    console.log(d);
     formRef.current?.reset();
   }
   return (
-    <form ref={formRef} action={action}>
-      <input type="text" name="category" />
-      <button>submit</button>
-    </form>
+    <div className="newCategory">
+      <h2>Create new category</h2>
+      <form ref={formRef} action={action}>
+        <input type="text" name="category" />
+        <button>submit</button>
+      </form>
+    </div>
   );
 };
 

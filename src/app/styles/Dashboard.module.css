@@ -10,3 +10,19 @@
   flex-basis: 33%;
   max-width: 300px;
 }
+
+.first_flex {
+  display: flex;
+  gap: 2rem;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.single_category {
+  background-color: rgb(192, 192, 192);
+  padding: 12px 1rem;
+}
