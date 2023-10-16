@@ -1,0 +1,24 @@
+.nav_container {
+  background-color: black;
+  color: white;
+  padding: 1rem 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar a {
+  color: white;
+}
+
+.nav_center {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav_link.active {
+  color: gold;
+}

@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+}
+
+.sidebar {
+  padding: 1rem;
+  background-color: black;
+  height: 100vh;
+  color: white;
+  flex-basis: 33%;
+  max-width: 300px;
+}

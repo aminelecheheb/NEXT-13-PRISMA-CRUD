@@ -1,7 +1,7 @@
 "use client";
 
 import { createUserAction } from "@/app/_actions";
-import { User } from "@/app/user";
+// import { User } from "@/app/user";
 import { useRef } from "react";
 import { signIn } from "next-auth/react";
 
@@ -37,7 +37,7 @@ const signup = () => {
         />
         <button>sign up</button>
       </form>
-      <User />
+      {/* <User /> */}
     </main>
   );
 };

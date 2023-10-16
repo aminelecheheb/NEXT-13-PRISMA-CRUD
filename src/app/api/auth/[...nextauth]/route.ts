@@ -46,19 +46,21 @@ export const authOptions: NextAuthOptions = {
           id: user.id + "",
           email: user.email,
           name: user.name,
+          role: user.role,
           // randomKey: "Hey cool",
         };
       },
     }),
   ],
   callbacks: {
-    session: ({ session, token }) => {
+    session: ({ session, token, user }) => {
       return {
         ...session,
         user: {
           ...session.user,
           id: token.id,
           // randomKey: token.randomKey,
+          role: token.role,
         },
       };
     },
@@ -69,6 +71,7 @@ export const authOptions: NextAuthOptions = {
           ...token,
           id: u.id,
           // randomKey: u.randomKey,
+          role: u.role,
         };
       }
       return token;

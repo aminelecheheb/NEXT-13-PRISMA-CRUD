@@ -1,0 +1,9 @@
+.container {
+  width: 87%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}

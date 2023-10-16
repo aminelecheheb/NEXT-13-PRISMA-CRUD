@@ -12,8 +12,10 @@ async function main() {
       email: "test@test.com",
       name: "Test User",
       password,
+      role: "ADMIN",
     },
   });
+
   console.log({ user });
 }
 main()
