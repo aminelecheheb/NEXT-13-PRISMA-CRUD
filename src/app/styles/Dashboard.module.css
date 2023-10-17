@@ -26,3 +26,49 @@
   background-color: rgb(192, 192, 192);
   padding: 12px 1rem;
 }
+
+.products {
+  display: flex;
+  gap: 1rem;
+  /* flex-wrap: wrap; */
+}
+
+.product {
+  width: 33%;
+  max-width: 300px;
+}
+
+.image_container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
+.icons {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.582);
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 8px;
+}
+
+.delete {
+  font-size: 1.9rem;
+  color: rgb(252, 57, 57);
+  cursor: pointer;
+}
+
+.image_container .img {
+  object-fit: cover;
+}
+
+.infos {
+  padding: 1rem;
+}
+
+.infos p,
+.infos h3 {
+  margin: 0;
+}

@@ -1,6 +1,6 @@
 "use server";
 import { createUser } from "@/lib/auth";
-import { createProduct } from "@/lib/product";
+import { createProduct, deleteProduct } from "@/lib/product";
 import { createCategory } from "@/lib/category";
 import { getServerSession } from "next-auth";
 
@@ -34,7 +34,13 @@ export async function createProductAction(
     category,
     authorId
   );
+  revalidatePath("/dashboard");
   return data;
+}
+
+export async function deleteProductAction(id: number) {
+  await deleteProduct(id);
+  revalidatePath("/dashboard");
 }
 
 export async function createCategoryAction(category: string) {

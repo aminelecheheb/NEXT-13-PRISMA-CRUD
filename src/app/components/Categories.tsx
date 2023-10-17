@@ -1,7 +1,7 @@
 import { getCategories } from "@/lib/category";
 import styles from "@/app/styles/Dashboard.module.css";
 
-const page = async () => {
+const Categories = async () => {
   const { categories } = await getCategories();
 
   return (
@@ -20,4 +20,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Categories;
