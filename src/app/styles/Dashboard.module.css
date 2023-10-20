@@ -23,8 +23,10 @@
 }
 
 .single_category {
-  background-color: rgb(192, 192, 192);
+  background-color: rgb(54, 141, 248);
+  color: rgb(255, 255, 255);
   padding: 12px 1rem;
+  border-radius: 2rem;
 }
 
 .products {
@@ -56,7 +58,13 @@
 
 .delete {
   font-size: 1.9rem;
-  color: rgb(252, 57, 57);
+  color: rgb(255, 75, 75);
+  cursor: pointer;
+}
+
+.edit {
+  font-size: 1.9rem;
+  color: rgb(2, 250, 35);
   cursor: pointer;
 }
 

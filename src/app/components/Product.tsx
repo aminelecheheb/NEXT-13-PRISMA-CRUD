@@ -1,9 +1,10 @@
 "use client";
 import styles from "../styles/Dashboard.module.css";
 import Image from "next/image";
-import { AiFillDelete } from "react-icons/ai";
-import { deleteProduct } from "@/lib/product";
+import { MdOutlineDeleteOutline } from "react-icons/md";
+import { AiOutlineEdit } from "react-icons/ai";
 import { deleteProductAction } from "../_actions";
+import { useRouter } from "next/navigation";
 
 type ProductType = {
   id: number;
@@ -18,13 +19,19 @@ type ProductType = {
 };
 
 const Product = (props: { product: ProductType }) => {
+  const router = useRouter();
   return (
     <div className={styles.product}>
       <div className={styles.image_container}>
         <div className={styles.icons}>
-          <AiFillDelete
+          <MdOutlineDeleteOutline
             className={styles.delete}
             onClick={() => deleteProductAction(props.product.id)}
+          />
+
+          <AiOutlineEdit
+            className={styles.edit}
+            onClick={() => router.push(`/dashboard/edit/${props.product.id}`)}
           />
         </div>
         <Image

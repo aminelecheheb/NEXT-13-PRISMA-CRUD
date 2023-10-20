@@ -36,3 +36,35 @@ export async function deleteProduct(id: number) {
     return { error };
   }
 }
+
+export async function getSingleProduct(id: number) {
+  try {
+    const product = await prisma.product.findUnique({ where: { id: id } });
+    return { product };
+  } catch (error) {
+    return { error };
+  }
+}
+
+export async function updateProduct(
+  id: number,
+  title: string | undefined,
+  description: string | undefined,
+  imageUrl: string | undefined,
+  categoryId: number | undefined
+) {
+  try {
+    const product = await prisma.product.update({
+      where: { id: id },
+      data: {
+        title,
+        description,
+        imageUrl,
+        categoryId,
+      },
+    });
+    return { product };
+  } catch (error) {
+    return { error };
+  }
+}

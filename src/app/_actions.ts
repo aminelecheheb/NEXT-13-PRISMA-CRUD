@@ -1,6 +1,11 @@
 "use server";
 import { createUser } from "@/lib/auth";
-import { createProduct, deleteProduct } from "@/lib/product";
+import {
+  createProduct,
+  deleteProduct,
+  getSingleProduct,
+  updateProduct,
+} from "@/lib/product";
 import { createCategory } from "@/lib/category";
 import { getServerSession } from "next-auth";
 
@@ -41,6 +46,22 @@ export async function createProductAction(
 export async function deleteProductAction(id: number) {
   await deleteProduct(id);
   revalidatePath("/dashboard");
+}
+
+export async function getSingleProductAction(id: number) {
+  const product = await getSingleProduct(id);
+  return product;
+}
+
+export async function updateProductAction(
+  id: number,
+  title: string | undefined,
+  description: string | undefined,
+  imageUrl: string | undefined,
+  categoryId: number | undefined
+) {
+  await updateProduct(id, title, description, imageUrl, categoryId);
+  revalidatePath(`/dashboard/edit/${id}`);
 }
 
 export async function createCategoryAction(category: string) {

@@ -26,3 +26,15 @@ textarea {
 form input {
   padding: 0.4rem;
 }
+
+.editProduct form {
+  width: 100%;
+  max-width: 600px;
+}
+
+.editProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
