@@ -1,0 +1,29 @@
+.products {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.product {
+  width: 33%;
+  max-width: 300px;
+}
+
+.image_container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
+.image_container .img {
+  object-fit: cover;
+}
+
+.infos {
+  padding: 1rem;
+}
+
+.infos p,
+.infos h3 {
+  margin: 0;
+}

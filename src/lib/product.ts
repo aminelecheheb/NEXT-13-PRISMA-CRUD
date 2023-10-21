@@ -1,5 +1,16 @@
 import { prisma } from "./prisma";
 
+// get all products
+export async function getAllProducts() {
+  try {
+    const products = await prisma.product.findMany({});
+    return { products };
+  } catch (error) {
+    return { error };
+  }
+}
+
+// get all products for a spesefic user
 export async function getProducts(id: number) {
   try {
     const products = await prisma.product.findMany({ where: { authorId: id } });
@@ -8,7 +19,7 @@ export async function getProducts(id: number) {
     return { error };
   }
 }
-
+// create product
 export async function createProduct(
   title: string,
   description: string,
@@ -26,6 +37,7 @@ export async function createProduct(
   }
 }
 
+// delete product
 export async function deleteProduct(id: number) {
   try {
     const product = await prisma.product.delete({
@@ -37,6 +49,7 @@ export async function deleteProduct(id: number) {
   }
 }
 
+// get single product by id
 export async function getSingleProduct(id: number) {
   try {
     const product = await prisma.product.findUnique({ where: { id: id } });
@@ -46,6 +59,7 @@ export async function getSingleProduct(id: number) {
   }
 }
 
+// update product
 export async function updateProduct(
   id: number,
   title: string | undefined,
