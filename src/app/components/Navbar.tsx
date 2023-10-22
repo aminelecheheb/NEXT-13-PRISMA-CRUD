@@ -8,8 +8,10 @@ import { useAppDispatch } from "@/redux/hooks";
 import { useEffect } from "react";
 import { setActiveNav } from "@/redux/features/globalSlice";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const { activeNav } = useAppSelector((state) => state.globalReducer);
   const { data: session } = useSession();
@@ -39,7 +41,18 @@ const Navbar = () => {
             Dashboard
           </Link>
         </div>
-        <div>{session ? <LogoutButton /> : <LoginButton />}</div>
+        <div>
+          {session ? (
+            <LogoutButton />
+          ) : (
+            <div>
+              <LoginButton />
+              <button onClick={() => router.push("auth/signup")}>
+                sign up
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </nav>
   );
