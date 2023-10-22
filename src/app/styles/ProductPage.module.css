@@ -1,0 +1,34 @@
+.product_page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 3rem;
+}
+
+.image_container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
+.image_container .img {
+  object-fit: cover;
+}
+
+.infos {
+  padding: 1rem;
+}
+
+.infos p,
+.infos h1 {
+  margin: 0;
+}
+
+.comments_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment_input {
+  padding: 1rem;
+}

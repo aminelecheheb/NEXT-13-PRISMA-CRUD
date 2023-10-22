@@ -18,7 +18,12 @@ type ProductType = {
   categoryId: number;
 };
 
-const Product = (props: { product: ProductType }) => {
+const handleDelete = async (id: number) => {
+  const data = await deleteProductAction(id);
+  console.log(data);
+};
+
+const Product = (props: { product: ProductType; id: number }) => {
   const router = useRouter();
   return (
     <div className={styles.product}>
@@ -26,7 +31,7 @@ const Product = (props: { product: ProductType }) => {
         <div className={styles.icons}>
           <MdOutlineDeleteOutline
             className={styles.delete}
-            onClick={() => deleteProductAction(props.product.id)}
+            onClick={() => handleDelete(props.id)}
           />
 
           <AiOutlineEdit

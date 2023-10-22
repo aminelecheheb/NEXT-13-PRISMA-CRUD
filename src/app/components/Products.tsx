@@ -14,7 +14,8 @@ const Products = async () => {
       <h2>Products</h2>
       <div className={styles.products}>
         {products?.map((product) => {
-          return <Product product={product} />;
+          const id = product.id;
+          return <Product product={product} id={id} />;
         })}
       </div>
     </div>

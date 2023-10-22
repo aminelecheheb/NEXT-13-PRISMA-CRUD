@@ -48,10 +48,11 @@ model Category {
 
 
 model Comment {
+  id Int @id @default(autoincrement())
   product       Product     @relation(fields: [productId], references: [id])
   productId     Int 
   author   User @relation(fields: [authorId], references: [id])
   authorId Int 
   body String
-  @@id([productId, authorId])
+  // @@id([productId,authorId])
 }

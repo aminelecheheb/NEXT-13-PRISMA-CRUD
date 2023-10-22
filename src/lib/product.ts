@@ -41,7 +41,7 @@ export async function createProduct(
 export async function deleteProduct(id: number) {
   try {
     const product = await prisma.product.delete({
-      where: { id: id },
+      where: { id },
     });
     return { product };
   } catch (error) {
@@ -52,7 +52,10 @@ export async function deleteProduct(id: number) {
 // get single product by id
 export async function getSingleProduct(id: number) {
   try {
-    const product = await prisma.product.findUnique({ where: { id: id } });
+    const product = await prisma.product.findUnique({
+      where: { id },
+      include: { comments: true },
+    });
     return { product };
   } catch (error) {
     return { error };

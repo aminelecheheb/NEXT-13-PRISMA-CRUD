@@ -6,6 +6,7 @@ import {
   getSingleProduct,
   updateProduct,
 } from "@/lib/product";
+import { createComment, deleteAllCommentsByProductId } from "@/lib/comment";
 import { createCategory } from "@/lib/category";
 import { getServerSession } from "next-auth";
 
@@ -44,13 +45,10 @@ export async function createProductAction(
 }
 
 export async function deleteProductAction(id: number) {
-  await deleteProduct(id);
+  const comments = await deleteAllCommentsByProductId(id);
+  const product = await deleteProduct(id);
   revalidatePath("/dashboard");
-}
-
-export async function getSingleProductAction(id: number) {
-  const product = await getSingleProduct(id);
-  return product;
+  return { comments, product };
 }
 
 export async function updateProductAction(
@@ -67,5 +65,13 @@ export async function updateProductAction(
 export async function createCategoryAction(category: string) {
   const data = await createCategory(category);
   revalidatePath("/dashboard");
+  return data;
+}
+
+export async function createCommentAction(productId: number, body: string) {
+  const session = await getServerSession(authOptions);
+  const authorId = parseInt(session?.user.id);
+  const data = await createComment(productId, authorId, body);
+  revalidatePath(`/product/${productId}`);
   return data;
 }

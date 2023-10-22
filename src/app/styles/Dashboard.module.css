@@ -29,9 +29,13 @@
   border-radius: 2rem;
 }
 
+.items {
+  width: 100%;
+}
 .products {
   display: flex;
   gap: 1rem;
+  width: 100%;
   /* flex-wrap: wrap; */
 }
 

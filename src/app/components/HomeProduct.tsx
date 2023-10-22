@@ -1,6 +1,7 @@
-import React from "react";
+"use client";
 import styles from "@/app/styles/page.module.css";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 type ProductType = {
   id: number;
@@ -15,9 +16,13 @@ type ProductType = {
 };
 
 const HomeProduct = (props: { product: ProductType }) => {
+  const router = useRouter();
   return (
     <div className={styles.product}>
-      <div className={styles.image_container}>
+      <div
+        className={styles.image_container}
+        onClick={() => router.push(`/product/${props.product.id}`)}
+      >
         <Image
           fill
           src={props.product.imageUrl}
