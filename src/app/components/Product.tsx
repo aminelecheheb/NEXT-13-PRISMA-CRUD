@@ -15,7 +15,7 @@ type ProductType = {
   imageUrl: string;
   published: boolean;
   authorId: number;
-  categoryId: number;
+  categoryId: number | null;
 };
 
 const handleDelete = async (id: number) => {

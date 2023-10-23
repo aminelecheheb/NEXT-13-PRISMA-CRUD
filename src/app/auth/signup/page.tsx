@@ -5,7 +5,7 @@ import { createUserAction } from "@/app/_actions";
 import { useRef } from "react";
 import { signIn } from "next-auth/react";
 
-const signup = () => {
+const Signup = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   async function action(data: FormData) {
@@ -42,4 +42,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default Signup;

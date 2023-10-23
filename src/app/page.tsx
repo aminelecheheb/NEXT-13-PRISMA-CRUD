@@ -12,7 +12,7 @@ export default async function Home() {
           <div className={styles.products}>
             {products.products &&
               products.products.map((product) => {
-                return <HomeProduct product={product} />;
+                return <HomeProduct key={product.id} product={product} />;
               })}
           </div>
         </div>
