@@ -16,9 +16,9 @@ const Navbar = () => {
   const { activeNav } = useAppSelector((state) => state.globalReducer);
   const { data: session } = useSession();
   const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(setActiveNav(pathname));
-  }, [pathname]);
+  // useEffect(() => {
+  //   dispatch(setActiveNav(pathname));
+  // }, [pathname]);
   return (
     <nav className={styles.nav_container}>
       <div className={`container ${styles.navbar}`}>

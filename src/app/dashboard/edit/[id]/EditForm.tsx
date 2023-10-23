@@ -11,7 +11,7 @@ type Product = {
   imageUrl: string;
   published: boolean;
   authorId: number;
-  categoryId: number;
+  categoryId: number | null;
 } | null;
 
 const EditForm = ({ product, id }: { product: Product; id: number }) => {
@@ -62,11 +62,11 @@ const EditForm = ({ product, id }: { product: Product; id: number }) => {
             ? setCategoryId(0)
             : setCategoryId(parseInt(e.target.value))
         }
-        value={categoryId}
+        value={categoryId || 1}
       />
       <button
         onClick={(e) => {
-          handleUpdate(e, id, title, description, imageUrl, categoryId);
+          handleUpdate(e, id, title, description, imageUrl, categoryId || 1);
         }}
       >
         submit
